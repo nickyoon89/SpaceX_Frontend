@@ -19,4 +19,4 @@ this will lunch the app [http://localhost:3000](http://localhost:3000)
 
 ## Any Issue Plese Contact
 
-[Email](mailto:nickyoon89@gmail.com)
+nickyoon89@gmail.com
