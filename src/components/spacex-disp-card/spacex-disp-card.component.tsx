@@ -38,7 +38,7 @@ export default function SpacexDispCard(_cardData:any) {
     <Card sx={{minHeight:"220px"}}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: "rgb(4, 228, 153)"}} aria-label="recipe">
+          <Avatar sx={{ bgcolor: "rgb(4, 228, 153)"}} aria-label="title-icon">
             {cardData.name.substring(0,1)}
           </Avatar>
         }

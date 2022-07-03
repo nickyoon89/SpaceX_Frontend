@@ -8,8 +8,8 @@ export default function SpacexDispGrid(props:any) {
             autoHeight
             rows={props.rows}
             columns={props.columns}
-            pageSize={props.pageSize}
-            rowsPerPageOptions={[5]}
+            pageSize={parseInt(props.pageSize)}
+            rowsPerPageOptions={[10]}
             checkboxSelection
             disableSelectionOnClick
         />
