@@ -20,6 +20,7 @@ interface ExpandMoreProps extends IconButtonProps {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
   })(({ theme, expand }) => ({
+    background: 'white',
     transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
     marginLeft: 'auto',
     transition: theme.transitions.create('transform', {

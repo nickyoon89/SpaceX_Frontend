@@ -3,7 +3,7 @@ import { DataGrid } from '@mui/x-data-grid';
 
 export default function SpacexDispGrid(props:any) {
     return (
-      <Box sx={{width: '100%'}}>
+      <Box sx={{width: '100%', background: 'white', borderRadius: '15px'}}>
         <DataGrid
             autoHeight
             rows={props.rows}

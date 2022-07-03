@@ -84,8 +84,8 @@ function App() {
       setApolloData(data.missionsResult);
     }
   },[data]);
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+  if (loading) return <Grid item className="message-grid" xs={12}><Typography variant="h2" color="text.secondary" >LOADING...</Typography></Grid>;
+  if (error) return <Grid item className="message-grid" xs={12}><Typography variant="h2" color="text.secondary" >ERROR!</Typography></Grid>;
   function sortingChangeHandler(e:any){
     setSort(e.target.value);
     renewData(e.target.value, false);
@@ -123,7 +123,7 @@ function App() {
       }}
     >
       <Grid className="App" container spacing={2}>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <FormControl>
             <FormLabel>Display Type</FormLabel>
             <RadioGroup
@@ -136,18 +136,19 @@ function App() {
             </RadioGroup>
           </FormControl>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item  xs={12} md={4}>
           <SpacexInputSelect value={sort} title="Sort" data={[{value:'id', label:'ID'},{value:'name', label:'Name'}]} changeHandler={sortingChangeHandler}></SpacexInputSelect>
           <Button variant="contained" color="success" onClick={()=>renewData("", true)} sx={{width:"100%", marginTop: "10px", height:"56px"}}>Refresh</Button>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} md={4}>
         <SpacexInputSelect value={filter.param} title="Filter" data={[{value:'id', label:'ID'},{value:'name', label:'Name'}]} changeHandler={filterhangeHandler}></SpacexInputSelect>
         <TextField value={filter.search} onChange={(e)=>setFilter({param:filter.param, search:e.target.value})} id="standard-basic" label="" sx={{marginTop: "10px", width: "calc(100% - 40px)"}}/>
         <IconButton type="submit" aria-label="search" sx={{marginTop: "10px", height:"56px"}} onClick={()=>renewData("", false)}>
           <SearchIcon/>
         </IconButton>
         </Grid>
-        {dispType === "card" ? (
+        {apolloData.data.length==0?  <Grid item className="message-grid" xs={12}><Typography variant="h2" color="text.secondary" >NO DATA</Typography></Grid> :
+        dispType === "card" ? (
           apolloData.data.map((_cardData: any) => (
             <Grid item xs={12} sm={6} md={4} key={_cardData.id}>
               <SpacexDispCard cardData={_cardData} />
@@ -163,7 +164,7 @@ function App() {
           </Grid>
         ) : dispType === "json" ? (
           <Grid item xs={12}>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary" sx={{overflow:"scroll"}}>
               {JSON.stringify(apolloData, null, "\t")}
             </Typography>
           </Grid>

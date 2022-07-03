@@ -15,7 +15,7 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
   
 root.render(
   <ApolloProvider client={client}>
-    <div style={{display:"flex", justifyContent:"center"}}><p className='title'>SpaceX by Nick</p></div>
+    <div style={{display:"flex", justifyContent:"center"}}><p className='title'>Nick Yoon</p></div>
     <App />
   </ApolloProvider>,
 );
